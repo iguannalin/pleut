@@ -20,16 +20,16 @@ window.addEventListener("load", () => {
     const elem = document.createElement("p");
     elem.innerHTML = chars[index];
     container.appendChild(elem);
-    elem.style.left = getRandomInt(0, window.innerWidth)+"px";
-    elem.style.top = "0px";
+    elem.style.left = getRandomInt(-200, window.innerWidth-20)+"px";
+    elem.style.top = "-100px";
     let elemInterval = setInterval(() => {
       let hh = (+elem.style.top.split("px")[0]);
       if (hh >= window.innerHeight) clearInterval(elems[index].elemInterval);
       elem.style.top = hh+1+"px";
       elem.style.left = (+elem.style.left.split("px")[0])+(Math.random()>0.4?1:-1)+"px";
-    }, 25);
+    }, 50);
     elems.push({elem,elemInterval});
     index++;
   }
-  interval = setInterval(() => setTimeout(createChar, getRandomInt(15,90)*150), 25);
+  interval = setInterval(() => setTimeout(createChar, getRandomInt(15,90)*200), getRandomInt(0,3)*100);
 });
